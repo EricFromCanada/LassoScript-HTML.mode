@@ -5,7 +5,7 @@
         <extension>lasso</extension>
         <extension>las</extension>
         <regex>\A#![ \S]+lasso9</regex>
-        <regex>\A&lt;\?[Ll]assoScript</regex>
-        <regex>\A\[[^\[]</regex>
+        <regex>&lt;\?(?i)(Lasso(Script)?|=)</regex>
+        <regex>\A\s*\[[^\[]</regex>
     </recognition>
 </settings>
