@@ -4,6 +4,7 @@
     <recognition>
         <extension>lasso</extension>
         <extension>las</extension>
+        <regex>\A#![ \S]+lasso9</regex>
         <regex>\A&lt;\?[Ll]assoScript</regex>
         <regex>\A\[[^\[]</regex>
     </recognition>
