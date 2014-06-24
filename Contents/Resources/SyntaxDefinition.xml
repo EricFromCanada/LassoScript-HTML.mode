@@ -11,11 +11,11 @@
 	<states>
 
 		<default id="Base" usesymbolsfrommode="HTML" useautocompletefrommode="HTML" usespellchecking="yes" scope="meta.default">
-		                 
+
 			<import mode="XML" keywords-only="yes" />
-			
+
 			<!-- support for pure lasso code libraries -->
-			
+
 			<state id="Define Multiple line lasso 9" foldable="yes" usesymbolsfrommode="LassoScript-HTML" useautocompletefrommode="LassoScript-HTML" scope="meta.default">
 				<begin>
 					<regex>(?&lt;![\d\w.\-#])(?:define|public|protected|private|provide)\s+(?:.*?)=>(?:.*?){</regex>
@@ -23,12 +23,12 @@
 				<end>
 					<string>}</string>
 				</end>
-				
+
 				<import state="Define Multiple line lasso 9"/>
 				<import state="LassoScript Code"/>
 
 			</state>
-			
+
 			<state id="Define Single line lasso 9" usesymbolsfrommode="LassoScript-HTML" useautocompletefrommode="LassoScript-HTML" scope="meta.default">
 				<begin>
 					<regex>(?:^|[\r\n])[ \t]*(?:define|public|protected|private|provide)\s+</regex>
@@ -36,11 +36,11 @@
 				<end>
 					<regex>(?'unwindend'[\r\n])</regex>
 				</end>
-				
+
 				<import state="LassoScript Code"/>
-				
+
 			</state>
-			
+
 			<state id="Define Lasso 8" usesymbolsfrommode="LassoScript-HTML" useautocompletefrommode="LassoScript-HTML" scope="meta.default">
 				<begin>
 					<regex>(?:^|\s)(?i)Define_Tag\s*\(</regex>
@@ -48,10 +48,10 @@
 				<end>
 					<regex>(?i)(/Define_Tag)</regex>
 				</end>
-				
+
 				<import state="LassoScript Code"/>
 			</state>
-			
+
 			<state id="Lasso No Process" type="block" foldable="yes" usesymbolsfrommode="LassoScript-HTML" useautocompletefrommode="LassoScript-HTML"  scope="comment.block">
 				<begin>
 					<regex>[\[]\s*noprocess\s*[\]]</regex>
@@ -60,37 +60,37 @@
 					<regex>[\[]\s*[/]noprocess\s*[\]]</regex>
 				</end>
 			</state>
-			
+
 			<!-- inline lassoscript -->
-			
+
 			<state id="LassoScript Code" containerState="yes" usesymbolsfrommode="LassoScript-HTML" useautocompletefrommode="LassoScript-HTML" scope="meta.default">
-				
+
 				<keywords id="LassoScript Language Switch" useforautocomplete="no" scope="markup.processing.languageswitch">
-			   		<regex>(&lt;\?(?i)(?:lassoscript))</regex>
-			   		<regex>(\?&gt;)</regex>
-			   		<regex>(\[)</regex>
-			   		<regex>(\])</regex>
-			   		<regex>(&lt;\?=)</regex>
-			   	</keywords>
-			   	
+					<regex>(&lt;\?(?i)(?:lassoscript))</regex>
+					<regex>(\?&gt;)</regex>
+					<regex>(\[)</regex>
+					<regex>(\])</regex>
+					<regex>(&lt;\?=)</regex>
+				</keywords>
+
 				<state id="Lasso Block" type="block" foldable="yes" scope="meta.block.curly">
-                    <begin>
-                        <regex>{</regex><autoend>}</autoend>
-                    </begin>
-                    <end>
-                        <regex>(?:}|(?'unwindend'\]))</regex>
-                    </end>
-                    <import state="LassoScript Code"/>
-                </state>
-<!--             
-                This does not work for pure Lasso files. FIXME
-                <state id="Foldable Block" type="block" foldable="yes">
-                    <begin><string>(?i)(?&lt;!\S)(?'blockstart'if|iterate|loop|while|define_tag|select)[: \t(][^;]+;</string></begin>
-                    <end><regex>(?i)/(?#see-insert-start-group:blockstart);</regex></end>
-                    <import mode="XML" keywords-only="yes" />
-                    <import state="LassoScript Code" />
-                </state>
- -->			
+					<begin>
+						<regex>{</regex><autoend>}</autoend>
+					</begin>
+					<end>
+						<regex>(?:}|(?'unwindend'\]))</regex>
+					</end>
+					<import state="LassoScript Code"/>
+				</state>
+<!--
+				This does not work for pure Lasso files. FIXME
+				<state id="Foldable Block" type="block" foldable="yes">
+					<begin><string>(?i)(?&lt;!\S)(?'blockstart'if|iterate|loop|while|define_tag|select)[: \t(][^;]+;</string></begin>
+					<end><regex>(?i)/(?#see-insert-start-group:blockstart);</regex></end>
+					<import mode="XML" keywords-only="yes" />
+					<import state="LassoScript Code" />
+				</state>
+ -->
 				<keywords id="Built-in Types" useforautocomplete="yes" scope="support.function">
 					<string>_</string>
 					<string>...</string>
@@ -160,7 +160,7 @@
 					<string>yield</string>
 					<string>yieldHome</string>
 				</keywords>
-					
+
 				<keywords id="Default Lasso Tags" casesensitive="no" useforautocomplete="yes" scope="keyword">
 					<string>__char</string>
 					<string>__sync_timestamp__</string>
@@ -1225,55 +1225,55 @@
 					<string>loop_count</string>
 					<string>loop</string>
 					<string>inline</string>
-					<string>loop</string>                
+					<string>loop</string>
 				</keywords>
 				<keywords id="Lasso Container keywords" casesensitive="no" useforautocomplete="yes" scope="keyword.container">
-					<string>cache</string>               
-					<string>database_names</string>      
+					<string>cache</string>
+					<string>database_names</string>
 					<string>database_schemanames</string>
-					<string>database_tablenames</string> 
+					<string>database_tablenames</string>
 					<string>debug</string>
-					<string>define_tag</string>          
-					<string>define_type</string>         
-					<string>email_batch</string>         
-					<string>encode_set</string>          
-					<string>records</string>             
-					<string>html_comment</string>        
-					<string>handle</string>              
-					<string>handle_error</string>        
-					<string>header</string>              
-					<string>inline</string>              
-					<string>iterate</string>             
-					<string>ljax_target</string>         
-					<string>link</string>                
-					<string>link_currentaction</string>  
-					<string>link_currentgroup</string>   
-					<string>link_currentrecord</string>  
-					<string>link_detail</string>         
-					<string>link_firstgroup</string>     
-					<string>link_firstrecord</string>    
-					<string>link_lastgroup</string>      
-					<string>link_lastrecord</string>     
-					<string>link_nextgroup</string>      
-					<string>link_nextrecord</string>     
-					<string>link_prevgroup</string>      
-					<string>link_prevrecord</string>     
-					<string>log</string>                 
-					<string>namespace_using</string>     
-					<string>noprocess</string>           
-					<string>output_none</string>         
-					<string>portal</string>              
-					<string>private</string>             
-					<string>protect</string>             
-					<string>referrer</string>            
-					<string>repeating</string>           
-					<string>resultset</string>           
-					<string>search_arguments</string>    
-					<string>select</string>              
-					<string>sort_arguments</string>      
-					<string>thread_atomic</string>       
-					<string>value_list</string>          
-					<string>while</string>               
+					<string>define_tag</string>
+					<string>define_type</string>
+					<string>email_batch</string>
+					<string>encode_set</string>
+					<string>records</string>
+					<string>html_comment</string>
+					<string>handle</string>
+					<string>handle_error</string>
+					<string>header</string>
+					<string>inline</string>
+					<string>iterate</string>
+					<string>ljax_target</string>
+					<string>link</string>
+					<string>link_currentaction</string>
+					<string>link_currentgroup</string>
+					<string>link_currentrecord</string>
+					<string>link_detail</string>
+					<string>link_firstgroup</string>
+					<string>link_firstrecord</string>
+					<string>link_lastgroup</string>
+					<string>link_lastrecord</string>
+					<string>link_nextgroup</string>
+					<string>link_nextrecord</string>
+					<string>link_prevgroup</string>
+					<string>link_prevrecord</string>
+					<string>log</string>
+					<string>namespace_using</string>
+					<string>noprocess</string>
+					<string>output_none</string>
+					<string>portal</string>
+					<string>private</string>
+					<string>protect</string>
+					<string>referrer</string>
+					<string>repeating</string>
+					<string>resultset</string>
+					<string>search_arguments</string>
+					<string>select</string>
+					<string>sort_arguments</string>
+					<string>thread_atomic</string>
+					<string>value_list</string>
+					<string>while</string>
 				</keywords>
 				<keywords id="Default Lasso Types" casesensitive="no" useforautocomplete="yes" scope="keyword.type">
 					<string>array</string>
@@ -1301,48 +1301,48 @@
 					<regex>(-[a-zA-Z0-9_]+)(?= *=| *,| *\)| *\]| *;)</regex>
 				</keywords>
 				<keywords id="Numbers" useforautocomplete="no" scope="constant.numeric">
-                    <regex>(?i)((?&lt;![\w.])(?:(?:\d+\.|\.)\d+(?:e[-+]?\d+)?|0x[\da-f]+|\d+))</regex>
+					<regex>(?i)((?&lt;![\w.])(?:(?:\d+\.|\.)\d+(?:e[-+]?\d+)?|0x[\da-f]+|\d+))</regex>
 				</keywords>
 				<keywords id="Lasso Variables" useforautocomplete="no" scope="language.variable" highlightInOrder="yes">
-                    <regex>(?i)(\$[a-z_][\w.]*)</regex>
-                    <regex>(?i)(#(?:[a-z_][\w.]*|\d+))</regex>
+					<regex>(?i)(\$[a-z_][\w.]*)</regex>
+					<regex>(?i)(#(?:[a-z_][\w.]*|\d+))</regex>
 				</keywords>
-				
+
 				<state id="Lasso SingleComment" type="comment" scope="comment.line">
-                    <begin><regex>//</regex></begin>
-                    <end><regex>[\n\r]</regex></end>
+					<begin><regex>//</regex></begin>
+					<end><regex>[\n\r]</regex></end>
 					<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
 				</state>
-				
+
 				<state id="Lasso DocComment" type="comment" foldable="yes" scope="comment.block.documentation">
 					<begin><regex>/\*\*!</regex><autoend>\*/</autoend></begin>
 					<end><regex>\*/</regex></end>
-	                <import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+					<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
 				</state>
-		
+
 				<state id="Lasso MultiComment" type="comment" foldable="yes" scope="comment.block">
 					<begin><regex>/\*</regex><autoend>\*/</autoend></begin>
 					<end><regex>\*/</regex></end>
-	                <import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+					<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
 				</state>
-		
+
 				<state id="Lasso StringBacktick" type="string" usespellchecking="yes" scope="string.backtick">
-                    <begin><regex>`</regex></begin>
-                    <end><regex>`</regex></end>
+					<begin><regex>`</regex></begin>
+					<end><regex>`</regex></end>
 				</state>
-		
+
 				<state id="Lasso StringDouble" type="string" usespellchecking="yes" scope="string.double">
 					<begin><regex>"</regex></begin>
 					<end><regex>(?&lt;!\\)(\\\\)*"</regex></end>
 				</state>
-		
+
 				<state id="Lasso String" type="string" usespellchecking="no" scope="string.single">
 					<begin><regex>'</regex></begin>
 					<end><regex>(?&lt;!\\)(\\\\)*'</regex></end>
 				</state>
-			
+
 			</state>
-			
+
 			<state id="LassoScript 1" usesymbolsfrommode="LassoScript-HTML" useautocompletefrommode="LassoScript-HTML" foldable="yes" scope="meta.block">
 				<begin><regex>\[</regex></begin>
 				<end><regex>\]</regex></end>
@@ -1350,36 +1350,36 @@
 					<import state="LassoScript 2" />
 					<import state="LassoScript Code" />
 			</state>
-		
-			<state id="LassoScript 2" usesymbolsfrommode="LassoScript-HTML" useautocompletefrommode="LassoScript-HTML"  foldable="yes" scope="meta.block">
+
+			<state id="LassoScript 2" usesymbolsfrommode="LassoScript-HTML" useautocompletefrommode="LassoScript-HTML"	foldable="yes" scope="meta.block">
 				<begin><regex>(?:&lt;\?(?i)(?:lassoscript))</regex></begin>
 				<end><regex>\?&gt;</regex></end>
-			   	<state id="LassoScript If Block" type="block" foldable="yes" scope="meta.block.if">
+				<state id="LassoScript If Block" type="block" foldable="yes" scope="meta.block.if">
 					<begin><regex>(?&lt;![\[/])\b(?:(?i)if|else)\b:?(?=[^;\r\n]*;)</regex><autoend>/If;</autoend></begin>
 					<end><regex>(?:(?i)(?:/if)|([^e](?=\belse\b)))</regex></end>
 					<import state="LassoScript 2" />
 					<import state="LassoScript Code" />
-			   	</state>
-			   	<state id="LassoScript Container Block" type="block" foldable="yes" scope="meta.block.if">
+				</state>
+				<state id="LassoScript Container Block" type="block" foldable="yes" scope="meta.block.if">
 					<begin><regex>(?:(?&lt;![\[/#?])\b(?'lassoblockstart'(?i)cache|debug|database_names|database_schemanames|database_tablenames|define_tag|define_type|email_batch|encode_set|records|html_comment|handle|handle_error|header|if|inline|iterate|ljax_target|link|link_currentaction|link_currentgroup|link_currentrecord|link_detail|link_firstgroup|link_firstrecord|link_lastgroup|link_lastrecord|link_nextgroup|link_nextrecord|link_prevgroup|link_prevrecord|log|loop|namespace_using|noprocess|output_none|portal|private|protect|referrer|repeating|resultset|search_arguments|select|sort_arguments|thread_atomic|value_list|while)\b:?(?=[^;\r\n]*;))</regex><autoend>/\g&lt;lassoblockstart>;</autoend></begin>
 					<end><regex>(?:(?i)(?:/(?#see-insert-start-group:lassoblockstart)))</regex></end>
 					<import state="LassoScript 2" />
 					<import state="LassoScript Code" />
-			   	</state>
-				<import state="LassoScript Code" />			
+				</state>
+				<import state="LassoScript Code" />
 			</state>
-			
+
 			<state id="LassoScript 3" usesymbolsfrommode="LassoScript-HTML" useautocompletefrommode="LassoScript-HTML" foldable="yes" scope="meta.block">
 				<begin><regex>(?:&lt;\?=)</regex></begin>
 				<end><regex>\?&gt;</regex></end>
 				<import state="LassoScript Code" />
 			</state>
-			
+
 			<state-link mode="XML" state="Comment"/>
-            <state-link mode="XML" state="CDATA"/>
-            <state-link mode="XML" state="Doctype"/>
-            <state-link mode="XML" state="Escape"/>
-			
+			<state-link mode="XML" state="CDATA"/>
+			<state-link mode="XML" state="Doctype"/>
+			<state-link mode="XML" state="Escape"/>
+
 			<state id="Inline CSS" delimiterState="Tags" usesymbolsfrommode="CSS" useautocompletefrommode="CSS" foldable="yes" indent="yes" scope="meta.block.css">
 				<begin>
 					<regex>&lt;[ \t]*(?i)style[^>]*></regex>
@@ -1388,7 +1388,7 @@
 				<end>
 					<regex>(?i)&lt;[ \t]*/[ \t]*style[ \t]*></regex>
 				</end>
-				
+
 				<import mode="CSS"/>
 
 			</state>
@@ -1401,119 +1401,119 @@
 				<state-link state="String" mode="JavaScript"/>
 				<state-link state="SingleString" mode="JavaScript"/>
 			</state>
-			
+
 			<state id="Inline JavaScript" delimiterState="Tags" usesymbolsfrommode="JavaScript" useautocompletefrommode="JavaScript" foldable="yes" scope="meta.block.js">
 				<begin>
-                   	<regex>(?:&lt;[ \t]*(?i)script\s*?>)|(?:&lt;[ \t]*(?i)script.+?javascript.*?(?&lt;![-])>)</regex>
+					<regex>(?:&lt;[ \t]*(?i)script\s*?>)|(?:&lt;[ \t]*(?i)script.+?javascript.*?(?&lt;![-])>)</regex>
 					<autoend>&lt;/script></autoend>
 				</begin>
 				<end>
 					<regex>&lt;(?i)/script[^>]*></regex>
 				</end>
-				
+
 				<import mode="JavaScript" />
-              
+
 			</state>
 
 			<state id="Self Closing Tags" foldable="no" scope="markup.tag">
-            	<begin>
-                    <regex>&lt;[ \t]*(?i)(?:area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)</regex>
-                </begin>
-                <end>
-                    <regex>&gt;</regex>
-                </end>
-                <import state="Tags"/>
-            </state>
+				<begin>
+					<regex>&lt;[ \t]*(?i)(?:area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)</regex>
+				</begin>
+				<end>
+					<regex>&gt;</regex>
+				</end>
+				<import state="Tags"/>
+			</state>
 
-            <state id="Foldable Tags" containerState="yes" delimiterState="Tags" 
-            foldBegin="\A&lt;[ \t]*(?'xmltagstatename'(?i:(?:a(?:rticle|side|udio))|(?:h(?:ead|eader|tml|\d|group))|(?:b(?:ody|lockquote))|p|pre|a|(?:t(?:able|head|body|foot|h|d|r))|div|(?:f(?:ieldset|orm|ooter))|ul|ol|li|dl|(?:s(?:ection|elect|ource))|nav|ruby|video))\b[\s\S]*(?&lt;![/?])>\Z" foldEnd="&lt;\s*/\s*(?i)(?#see-insert-start-group:xmltagstatename)\s*>" foldable="yes" usespellchecking="yes" scope="meta.block.tag">
-				
+			<state id="Foldable Tags" containerState="yes" delimiterState="Tags"
+			foldBegin="\A&lt;[ \t]*(?'xmltagstatename'(?i:(?:a(?:rticle|side|udio))|(?:h(?:ead|eader|tml|\d|group))|(?:b(?:ody|lockquote))|p|pre|a|(?:t(?:able|head|body|foot|h|d|r))|div|(?:f(?:ieldset|orm|ooter))|ul|ol|li|dl|(?:s(?:ection|elect|ource))|nav|ruby|video))\b[\s\S]*(?&lt;![/?])>\Z" foldEnd="&lt;\s*/\s*(?i)(?#see-insert-start-group:xmltagstatename)\s*>" foldable="yes" usespellchecking="yes" scope="meta.block.tag">
+
 				<import mode="XML" keywords-only="yes"/>
-                <import keywords-only="yes"/>
+				<import keywords-only="yes"/>
 				<import/>
 			</state>
 
 			<state id="Tags" usespellchecking="no" foldState="Foldable Tags" scope="markup.tag">
-                <begin>
-                    <regex>&lt;</regex>
-                </begin>
-                <end>
-                    <regex>&gt;</regex>
-                </end>
-                
-                <state-link state="LassoScript 1" />
-                <state-link state="LassoScript 2" />
-                <state-link state="LassoScript 3" />
-                
-                <state id="Javascript Actions" usesymbolsfrommode="JavaScript" useautocompletefrommode="JavaScript" scope="meta.default" >
+				<begin>
+					<regex>&lt;</regex>
+				</begin>
+				<end>
+					<regex>&gt;</regex>
+				</end>
+
+				<state-link state="LassoScript 1" />
+				<state-link state="LassoScript 2" />
+				<state-link state="LassoScript 3" />
+
+				<state id="Javascript Actions" usesymbolsfrommode="JavaScript" useautocompletefrommode="JavaScript" scope="meta.default" >
 					<begin><regex>(?&lt;=[ \t])(?i)on[\w]+[ \t]*=[ \t]*"</regex></begin>
 					<end><regex>"</regex></end>
-	                <keywords id="Action Attribute" useforautocomplete="no" scope="markup.tag.attribute.name">
+					<keywords id="Action Attribute" useforautocomplete="no" scope="markup.tag.attribute.name">
 						<regex>\A([\w-]+)[ \t]*=</regex>
 					</keywords>
-					
+
 					<keywords id="Action Quotes" useforautocomplete="no" scope="markup.tag.attribute.value.string">
 						<regex>(")</regex>
 					</keywords>
-					
+
 					<keywords id="Action Equals" useforautocomplete="no" scope="markup.tag">
 						<regex>\A(?i)on[\w-]+([ \t]*=[ \t]*)</regex>
 					</keywords>
-					
+
 					<import mode="JavaScript" keywords-only="yes"/>
-	                <import state="JavaScript Container"/>
-            	</state>
-            	
-            	<state id="Links" type="url" useforautocomplete="no" scope="meta.link">
+					<import state="JavaScript Container"/>
+				</state>
+
+				<state id="Links" type="url" useforautocomplete="no" scope="meta.link">
 					<begin><regex>(?&lt;=[ \t])(?i)(?:href|src)[ \t]*=[ \t]*"</regex></begin>
 					<end><regex>"</regex></end>
 
 					<state-link state="LassoScript 1" />
-                	<state-link state="LassoScript 2" />
-                	<state-link state="LassoScript 3" />
-                
+					<state-link state="LassoScript 2" />
+					<state-link state="LassoScript 3" />
+
 					<state id="Javascript in Links" usesymbolsfrommode="JavaScript" useautocompletefrommode="JavaScript" scope="meta.block.js">
 						<begin><regex>\A[ \t]*(?i)javascript:</regex></begin>
 						<end><regex>(?'unwindend'")</regex></end>
 						<import mode="JavaScript" keywords-only="yes"/>
-	               		<import state="JavaScript Container"/>
+						<import state="JavaScript Container"/>
 					</state>
-					
+
 					<keywords id="Link Attribute" useforautocomplete="no" scope="markup.tag.attribute.name">
 						<regex>\A(\w+)[ \t]*=</regex>
 					</keywords>
-					
+
 					<keywords id="Link Quotes" useforautocomplete="no" scope="markup.tag.attribute.value.string">
 						<regex>(")</regex>
 					</keywords>
-					
+
 					<keywords id="Link Equals" useforautocomplete="no" scope="markup.tag">
 						<regex>\A(?i)\w+([ \t]*=[ \t]*)</regex>
 					</keywords>
-					
+
 				</state>
-            	
-               	<state id="Strings in Tags" type="string" useforautocomplete="no" scope="markup.tag.attribute.value.string">
+
+				<state id="Strings in Tags" type="string" useforautocomplete="no" scope="markup.tag.attribute.value.string">
 					<begin><regex>"</regex></begin>
 					<end><regex>"</regex></end>
 					<state-link state="LassoScript 1" />
-                	<state-link state="LassoScript 2" />
-                	<state-link state="LassoScript 3" />
+					<state-link state="LassoScript 2" />
+					<state-link state="LassoScript 3" />
 				</state>
-				
+
 				<state id="Single Strings in Tags" type="string" useforautocomplete="no" scope="markup.tag.attribute.value.string">
 					<begin><regex>'</regex></begin>
 					<end><regex>'</regex></end>
 					<state-link state="LassoScript 1" />
-                	<state-link state="LassoScript 2" />
-                	<state-link state="LassoScript 3" />				
-                </state>
-				
+					<state-link state="LassoScript 2" />
+					<state-link state="LassoScript 3" />
+				</state>
+
 				<keywords id="Attributes in Tags" useforautocomplete="no" scope="markup.tag.attribute.name">
 					<regex>([\w-]*)(?=[ \t]*=)</regex>
 				</keywords>
-            </state>
-   
+			</state>
+
 		</default>
 
 	</states>
