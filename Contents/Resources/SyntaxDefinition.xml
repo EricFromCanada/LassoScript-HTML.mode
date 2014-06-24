@@ -265,7 +265,6 @@
 					<string>admin_userexists</string>
 					<string>admin_userlistgroups</string>
 					<string>all</string>
-					<string>and</string>
 					<string>array_iterator</string>
 					<string>auth</string>
 					<string>auth_admin</string>
@@ -283,7 +282,6 @@
 					<string>bom_utf32le</string>
 					<string>bom_utf8</string>
 					<string>boolean</string>
-					<string>bw</string>
 					<string>cache</string>
 					<string>cache_delete</string>
 					<string>cache_empty</string>
@@ -328,7 +326,6 @@
 					<string>client_type</string>
 					<string>client_url</string>
 					<string>client_username</string>
-					<string>cn</string>
 					<string>column</string>
 					<string>column_name</string>
 					<string>column_names</string>
@@ -484,7 +481,6 @@
 					<string>encrypt_crammd5</string>
 					<string>encrypt_hmac</string>
 					<string>encrypt_md5</string>
-					<string>eq</string>
 					<string>error_adderror</string>
 					<string>error_code</string>
 					<string>error_code_aborted</string>
@@ -655,7 +651,6 @@
 					<string>error_updateerror</string>
 					<string>euro</string>
 					<string>event_schedule</string>
-					<string>ew</string>
 					<string>field</string>
 					<string>field_name</string>
 					<string>field_names</string>
@@ -699,7 +694,6 @@
 					<string>find_soap_ops</string>
 					<string>form_param</string>
 					<string>found_count</string>
-					<string>ft</string>
 					<string>ftp_getfile</string>
 					<string>ftp_getlisting</string>
 					<string>ftp_putfile</string>
@@ -711,8 +705,6 @@
 					<string>global_remove</string>
 					<string>global_reset</string>
 					<string>globals</string>
-					<string>gt</string>
-					<string>gte</string>
 					<string>header</string>
 					<string>html_comment</string>
 					<string>if_empty</string>
@@ -820,8 +812,6 @@
 					<string>log_warning</string>
 					<string>logicalop_value</string>
 					<string>logicaloperator_value</string>
-					<string>lt</string>
-					<string>lte</string>
 					<string>magick_image</string>
 					<string>map_iterator</string>
 					<string>match_comparator</string>
@@ -880,7 +870,6 @@
 					<string>namespace_page</string>
 					<string>namespace_unload</string>
 					<string>namespace_using</string>
-					<string>neq</string>
 					<string>net</string>
 					<string>net_connectinprogress</string>
 					<string>net_connectok</string>
@@ -895,15 +884,12 @@
 					<string>no_default_output</string>
 					<string>none</string>
 					<string>noprocess</string>
-					<string>not</string>
-					<string>nrx</string>
 					<string>nslookup</string>
 					<string>once</string>
 					<string>oneoff</string>
 					<string>op_logicalvalue</string>
 					<string>operator_logicalvalue</string>
 					<string>option</string>
-					<string>or</string>
 					<string>os_process</string>
 					<string>output</string>
 					<string>output_none</string>
@@ -979,7 +965,6 @@
 					<string>row_count</string>
 					<string>rows</string>
 					<string>rows_array</string>
-					<string>rx</string>
 					<string>schema_name</string>
 					<string>scientific</string>
 					<string>search_args</string>
@@ -1309,6 +1294,9 @@
 				</keywords>
 				<keywords id="Lasso Tag Literals" useforautocomplete="no" scope="language.variable.string" highlightInOrder="yes">
 					<regex>(?i)(::\s*[a-z_][\w.]*)</regex>
+				</keywords>
+				<keywords id="Lasso Search Operators" useforautocomplete="no" scope="language.operator">
+					<regex>(?i)\b=(n?bw|n?ew|n?cn|lte?|gte?|n?eq|n?rx|ft|and|or|not)\b</regex>
 				</keywords>
 
 				<state id="Lasso SingleComment" type="comment" scope="comment.line">
