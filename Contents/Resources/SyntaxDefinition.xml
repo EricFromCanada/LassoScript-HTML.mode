@@ -1319,6 +1319,11 @@
 	                <import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
 				</state>
 		
+				<state id="Lasso StringBacktick" type="string" usespellchecking="yes" scope="string.backtick">
+                    <begin><regex>`</regex></begin>
+                    <end><regex>`</regex></end>
+				</state>
+		
 				<state id="Lasso StringDouble" type="string" usespellchecking="yes" scope="string.double">
 					<begin><regex>"</regex></begin>
 					<end><regex>(?&lt;!\\)(\\\\)*"</regex></end>
