@@ -1308,8 +1308,8 @@
 				</keywords>
 				
 				<state id="Lasso SingleComment" type="comment" scope="comment.line">
-					<begin><regex>(?://)</regex></begin>
-					<end><regex>.(?=[\n\r])</regex></end>
+                    <begin><regex>//</regex></begin>
+                    <end><regex>[\n\r]</regex></end>
 					<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
 				</state>
 				
