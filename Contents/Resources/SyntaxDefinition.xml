@@ -1300,12 +1300,15 @@
 				<keywords id="Lasso Tag/Type Parameters" useforautocomplete="yes" scope="markup.tag.attribute.name">
 					<regex>(-[a-zA-Z0-9_]+)(?= *=| *,| *\)| *\]| *;)</regex>
 				</keywords>
-				<keywords id="Numbers" useforautocomplete="no" scope="constant.numeric">
+				<keywords id="Lasso Numbers" useforautocomplete="no" scope="constant.numeric">
 					<regex>(?i)((?&lt;![\w.])(?:(?:\d+\.|\.)\d+(?:e[-+]?\d+)?|0x[\da-f]+|\d+))</regex>
 				</keywords>
 				<keywords id="Lasso Variables" useforautocomplete="no" scope="language.variable" highlightInOrder="yes">
 					<regex>(?i)(\$[a-z_][\w.]*)</regex>
 					<regex>(?i)(#(?:[a-z_][\w.]*|\d+))</regex>
+				</keywords>
+				<keywords id="Lasso Tag Literals" useforautocomplete="no" scope="language.variable.string" highlightInOrder="yes">
+					<regex>(?i)(::\s*[a-z_][\w.]*)</regex>
 				</keywords>
 
 				<state id="Lasso SingleComment" type="comment" scope="comment.line">
